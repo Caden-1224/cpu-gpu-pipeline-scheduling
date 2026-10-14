@@ -1,0 +1,85 @@
+{
+  "model": "non-preemptive discrete-event CPU-GPU pipeline",
+  "measurement_scope": "numerical model only; no physical hardware measurement",
+  "time_unit": "model milliseconds",
+  "policy": "gpu_feedback",
+  "thresholds": [
+    0,
+    1,
+    2,
+    4
+  ],
+  "repetitions": 30,
+  "seeds": {
+    "steady": [
+      1000,
+      1029
+    ],
+    "cpu_contention": [
+      11000,
+      11029
+    ],
+    "gpu_saturated": [
+      21000,
+      21029
+    ],
+    "bursty": [
+      31000,
+      31029
+    ]
+  },
+  "profiles": {
+    "steady": {
+      "request_count": 1000,
+      "cpu_cores": 2,
+      "interarrival_ms": 0.55,
+      "preprocess_ms": 0.55,
+      "submit_ms": 0.06,
+      "gpu_ms": 0.75,
+      "postprocess_ms": 0.15,
+      "background_rate": 0.0,
+      "background_ms": 0.0,
+      "burst_size": 1,
+      "burst_gap_ms": 0.0
+    },
+    "cpu_contention": {
+      "request_count": 1000,
+      "cpu_cores": 2,
+      "interarrival_ms": 0.52,
+      "preprocess_ms": 0.62,
+      "submit_ms": 0.06,
+      "gpu_ms": 0.52,
+      "postprocess_ms": 0.16,
+      "background_rate": 1.65,
+      "background_ms": 0.55,
+      "burst_size": 1,
+      "burst_gap_ms": 0.0
+    },
+    "gpu_saturated": {
+      "request_count": 1000,
+      "cpu_cores": 2,
+      "interarrival_ms": 0.42,
+      "preprocess_ms": 0.3,
+      "submit_ms": 0.05,
+      "gpu_ms": 1.35,
+      "postprocess_ms": 0.1,
+      "background_rate": 0.2,
+      "background_ms": 0.25,
+      "burst_size": 1,
+      "burst_gap_ms": 0.0
+    },
+    "bursty": {
+      "request_count": 1000,
+      "cpu_cores": 2,
+      "interarrival_ms": 2.3,
+      "preprocess_ms": 0.52,
+      "submit_ms": 0.06,
+      "gpu_ms": 0.65,
+      "postprocess_ms": 0.16,
+      "background_rate": 0.8,
+      "background_ms": 0.4,
+      "burst_size": 10,
+      "burst_gap_ms": 0.025
+    }
+  }
+}

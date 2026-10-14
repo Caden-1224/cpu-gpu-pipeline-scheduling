@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Large regenerable output: 360k rows, ~22 MB.
+results/request_metrics.csv
+results/threshold_sweep/request_metrics.csv
+*.csv.tmp
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Author-facing commit message draft; not part of the repository
+COMMIT_MSG.txt

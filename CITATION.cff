@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use this model, cite it using the metadata below."
+title: "CPU-GPU Pipeline Scheduling Simulator"
+abstract: >-
+  A seed-controlled discrete-event model of CPU-side task selection in a
+  four-stage CPU/GPU pipeline, comparing FIFO, static submit-priority and
+  GPU-queue-feedback dispatch under four synthetic workloads. Numerical
+  model only: no hardware, driver or kernel measurements.
+type: software
+authors:
+  - family-names: "Liu"
+    given-names: "Linkai"
+  - family-names: "Wen"
+    given-names: "Muchenang"
+version: "1.0.0"
+date-released: "2026-10-14"
+license: MIT
+repository-code: "https://github.com/Caden-1224/cpu-gpu-pipeline-scheduling"
+keywords:
+  - discrete-event simulation
+  - scheduling
+  - tail latency
+  - CPU-GPU pipeline
+preferred-citation:
+  type: conference-paper
+  title: "Low-Latency Adaptive Scheduling for CPU-GPU Pipelines Using GPU Queue Feedback"
+  authors:
+    - family-names: "Liu"
+      given-names: "Linkai"
+    - family-names: "Wen"
+      given-names: "Muchenang"
+  year: 2026
+  collection-title: "ISPDS 2026: 7th International Conference on Information Science, Parallel and Distributed Processing"
+  publisher:
+    name: "IEEE"
+  status: in-press
+  notes: >-
+    Accepted in September 2026. Publication by IEEE and indexing in IEEE Xplore
+    are planned; no DOI is available yet. The manuscript is not redistributed
+    with this repository, and every value it reports is asserted by
+    scripts/check_paper_numbers.py.

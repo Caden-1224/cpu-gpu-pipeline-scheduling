@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Unit tests
+        run: python -m unittest discover -s simulation -t . -v
+      - name: Manuscript number check
+        run: python scripts/check_paper_numbers.py --check
+      - name: Main study (short run)
+        run: python -m simulation.run_experiment --repetitions 3 --output /tmp/results
+      - name: Threshold sweep (short run)
+        run: python -m simulation.run_threshold_sweep --repetitions 3 --thresholds 0 1 2 --output /tmp/sweep
+      - name: Threshold sweep refuses to clobber without --force
+        run: |
+          python -m simulation.run_threshold_sweep --repetitions 3 --thresholds 0 --output /tmp/sweep_guard
+          ! python -m simulation.run_threshold_sweep --repetitions 3 --thresholds 0 --output /tmp/sweep_guard
+      - name: Regeneration is deterministic
+        run: |
+          python -m simulation.run_experiment --repetitions 3 --output /tmp/rerun
+          diff -r /tmp/results /tmp/rerun

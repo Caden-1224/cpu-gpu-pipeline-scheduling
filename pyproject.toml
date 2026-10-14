@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cpu-gpu-pipeline-scheduling"
+version = "1.0.0"
+description = "Seed-controlled discrete-event simulation of CPU-side scheduling policies in a CPU-GPU pipeline"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["discrete-event-simulation", "scheduling", "cpu-gpu-pipeline", "tail-latency", "performance-modeling"]
+classifiers = [
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Intended Audience :: Science/Research",
+  "Topic :: System :: Distributed Computing",
+  "License :: OSI Approved :: MIT License",
+]
+dependencies = []
+
+[project.optional-dependencies]
+figures = ["matplotlib>=3.8"]
+
+[project.urls]
+Repository = "https://github.com/Caden-1224/cpu-gpu-pipeline-scheduling"
+
+[tool.setuptools]
+packages = ["simulation"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
